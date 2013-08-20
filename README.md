@@ -41,6 +41,12 @@ To execute a bails script, just call `bails/$scriptName` from your grails projec
 
 Hopefully the script names are intuitive.  Here is a summary of those available:
 
+## check_for/..
+
+These are similar to codenarc rules - static 'analysis' (usually grepping) for antipatterns in source code.
+
+# Scripts TODO
+
 	build_deploy
 	optimise_images
 	release
@@ -56,13 +62,6 @@ Hopefully the script names are intuitive.  Here is a summary of those available:
 	plugin/build_deploy
 	plugin/release
 	plugin/rm_excluded_files
-
-	check_for/ignored_tests
-	check_for/metaclass_in_non-unit_tests
-	check_for/snapshot_dependencies
-	check_for/static_simple_date_format
-	check_for/functional_test_unflushed_saves
-	check_for/functional_test_unsafe_text_calls
 
 	jslint/lint
 	jslint/for_gsp
