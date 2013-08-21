@@ -45,6 +45,10 @@ Hopefully the script names are intuitive.  Here is a summary of those available:
 
 These are similar to codenarc rules - static 'analysis' (usually grepping) for antipatterns in source code.
 
+## test/..
+
+These scripts help repeat common and less common test functionality.
+
 # Scripts TODO
 
 	build_deploy
@@ -54,7 +58,6 @@ These are similar to codenarc rules - static 'analysis' (usually grepping) for a
 	run_with_updated_snapshots
 	test_and_backup
 	test_backup
-	test_bisect
 	test_functional
 	test_migrations
 	
