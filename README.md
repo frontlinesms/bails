@@ -3,7 +3,7 @@ Bails - Bash script extensions for Grails
 
 # Introduction
 
-Bails is a set of bash scripts aimed at making grails development simpler.
+Bails is a set of bash scripts aimed at making [grails][1] development simpler.
 
 Bails makes some assumptions about the tools and libraries you have available, and should make life easier if you're using them.
 
@@ -15,11 +15,19 @@ Bails makes some assumptions about the tools and libraries you have available, a
 
 # Stack
 
-* bash
+Bails assumes you are using the following frameworks/tools/languages and will help you to integrate with them:
+
+* [Git][3]
+* [Jenkins][4]
+* [Jenkins Violations Plugin][6]
+
+# Requirements
+
+Bails requires the following tools/frameworks/languages for some or all of its functionality:
+
+* [bash][2]
 * GNU-compatible tools (inc. sed and grep) (requires special setup on OSX)
-* git
-* nodejs
-* jenkins
+* [nodejs][4]
 
 # Installation
 
@@ -49,12 +57,19 @@ These are similar to codenarc rules - static 'analysis' (usually grepping) for a
 
 These scripts help repeat common and less common test functionality.
 
+## report/..
+
+These scripts run some kind of metrics on your code and produce reports for these metrics.
+
+## violations
+
+These scripts are for integration with the [Jenkins Violations Plugin][6].
+
 # Scripts TODO
 
 	build_deploy
 	optimise_images
 	release
-	simian_report
 	run_with_updated_snapshots
 	test_and_backup
 	test_functional
@@ -65,11 +80,6 @@ These scripts help repeat common and less common test functionality.
 	plugin/release
 	plugin/rm_excluded_files
 
-	jslint/lint
-	jslint/for_gsp
-	jslint/json_to_xml
-	jslint/violations_report
-
 	jsunit/test
 	jsunit/xunit_report
 
@@ -79,6 +89,13 @@ These scripts help repeat common and less common test functionality.
 
 ## TODO
 
-* add the scripts
+* add all the scripts
 * document git submodule setup
+
+[1]: http://www.grails.org
+[2]: http://www.gnu.org/software/bash/manual/bashref.html
+[3]: http://git-scm.com/
+[4]: http://nodejs.org/
+[5]: http://jenkins-ci.org/
+[6]: https://wiki.jenkins-ci.org/display/JENKINS/Violations
 
