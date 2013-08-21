@@ -1,0 +1,18 @@
+#!/bin/bash
+temp=temp
+target=target
+testReports=$target/test-reports
+analysisReports=$target/analysis-reports
+
+set -e
+
+function TODO {
+	log TODO $@
+	log terminating
+	exit 1
+}
+
+function log {
+	echo "# $@"
+}
+
