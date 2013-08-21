@@ -77,7 +77,6 @@ These scripts are for integration with the [Jenkins Violations Plugin][6].
 	
 	plugin/build
 	plugin/build_deploy
-	plugin/release
 	plugin/rm_excluded_files
 
 	jsunit/test
