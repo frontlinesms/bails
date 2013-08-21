@@ -1,0 +1,12 @@
+#!/bin/bash
+temp=temp
+reportDir=$temp/test-reports
+mkdir $temp
+echo "Removing old test reports backup..."
+rm -rf $reportDir
+echo "Backing up latest test reports..."
+cp -r $reportDir $temp
+echo "Launching browser to view test reports..."
+indexFile=$reportDir/html/index.html
+firefox $indexFile || open $indexFile
+

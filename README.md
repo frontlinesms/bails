@@ -57,7 +57,6 @@ These scripts help repeat common and less common test functionality.
 	simian_report
 	run_with_updated_snapshots
 	test_and_backup
-	test_backup
 	test_functional
 	test_migrations
 	
