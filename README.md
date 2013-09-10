@@ -76,7 +76,6 @@ These scripts are for integration with the [Jenkins Violations Plugin][6].
 	test_migrations
 	
 	plugin/build
-	plugin/build_deploy
 	plugin/rm_excluded_files
 
 	jsunit/test
@@ -85,6 +84,9 @@ These scripts are for integration with the [Jenkins Violations Plugin][6].
 # Release Notes
 
 ## 0.1
+
+* added lots of scripts, including plugin build_deploy and release
+* added grails plugin setup script
 
 ## TODO
 
