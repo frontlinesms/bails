@@ -3,6 +3,11 @@ target(name:'bailsInit') {
 	symlink(link:"${basedir}/bails",
 			overwrite:true,
 			resource:"${basedir}/target/plugins/bails-${bailsVersion}/scripts")
+	exec(executable:'chmod',
+			dir:"${basedir}/bails",
+			failonerror:true) {
+		arg(line:'-R +x .')
+	}
 }
 setDefaultTarget bailsInit
 
