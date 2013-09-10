@@ -60,7 +60,7 @@ if $orphanBranch; then
 fi
 
 grails_change_plugin_version $previousVersion $releaseVersion
-${0%/*}/../build_deploy_plugin --m2-deploy # TODO should support binary here too
+${0%/*}/../plugin/build_deploy --m2-deploy # TODO should support binary here too
 git_commit_all_changes "[RELEASE: $releaseVersion]"
 git tag "${tagPrefix}${releaseVersion}"
 if $orphanBranch; then
