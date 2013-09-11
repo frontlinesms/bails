@@ -18,6 +18,16 @@ function grails_assert_no_snapshot_dependencies {
 	exit $res
 }
 
+function groovy_get_var {
+	local fileName=$1
+	local varName=$2
+	env groovy -e "$(grep "^\s*def $varName" $fileName); println $varName"
+}
+
+function grails_get_plugin_version {
+	groovy_get_var '*GrailsPlugin.groovy' version
+}
+
 function grails_get_application_property {
 	local key=$1
 	grep "^$(echo $key | sed 's/\./\\./g')=" application.properties | cut -d= -f2

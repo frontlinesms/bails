@@ -2,6 +2,7 @@
 # Bails header file for including all the useful stuff
 set -e
 
+source bails/util/general
 source bails/util/git
 source bails/util/grails
 source bails/util/mysql
