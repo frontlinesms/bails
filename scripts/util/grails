@@ -1,4 +1,7 @@
 #!/bin/bash
+_grails_target=target
+testReports=$_grails_target/test-reports
+analysisReports=$_grails_target/analysis-reports
 
 function grails_assert_no_snapshot_dependencies {
 	log "Checking for SNAPSHOT dependencies..."
