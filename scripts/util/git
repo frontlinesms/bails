@@ -1,0 +1,28 @@
+#!/bin/bash
+
+function git_assert_repo_clean {
+	local status=$(git diff --shortstat 2> /dev/null | tail -n1)
+	if [[ $status != "" ]]; then
+		log "You have uncommitted changes."
+		exit 1
+	fi
+}
+
+function git_commit_all_changes {
+	local _commitMessage="$@"
+	git status
+	read -p "# Committing all changes with message: $_commitMessage [enter] "
+	# Add new files to git
+	git add .
+	# --all will also remove deleted files
+	git commit --all -m"$_commitMessage"
+}
+
+function git_get_current_branch {
+	git rev-parse --abbrev-ref HEAD
+}
+
+function git_last_tag {
+	git describe --tags --abbrev=0
+}
+

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+function mysql_create_db {
+	local db_name=$1
+	local db_username=$2
+	local db_password=$3
+	local root_username=root
+	log "Creating MySQL database: $db_name"
+	log "You may need to enter your mysql password for username: $root_username"
+	mysql -u${root_username} -p -e "DROP DATABASE IF EXISTS $db_name; CREATE DATABASE $db_name CHARACTER SET utf8; GRANT ALL PRIVILEGES ON $db_name.* TO $db_username@localhost IDENTIFIED BY '$db_password'"
+	log "Database created :-)"
+}
+

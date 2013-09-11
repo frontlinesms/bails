@@ -1,0 +1,22 @@
+#!/bin/bash
+
+function grails_assert_no_snapshot_dependencies {
+	log "Checking for SNAPSHOT dependencies..."
+	local res=$(grep -Erq SNAPSHOT grails-app/conf/BuildConfig.groovy)
+	if [[ $res == "0" ]]; then
+		log "SNAPSHOT dependencies found."
+		exit 1
+	fi
+	if [[ $res != "1" ]]; then
+		log "No SNAPSHOT dependencies found."
+		return
+	fi
+	log "Error checking for SNAPSHOT dependencies."
+	exit $res
+}
+
+function grails_get_application_property {
+	local key=$1
+	grep "^$(echo $key | sed 's/\./\\./g')=" application.properties | cut -d= -f2
+}
+
