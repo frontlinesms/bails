@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
- 
+
 // this script finds the test class that's causing test pollution in other tests.  Just pass it
 // a file name containing the test order that is failing and the particular test that is failing
 // it will start doing a binary search by running combinations of tests that occur before the failing test
@@ -8,35 +8,34 @@
 // From: http://naleid.com/blog/2012/05/22/fixing-grails-tests-that-pass-in-isolation-but-fail-when-run-as-a-suite/
 
 class BisectGrailsTests {
- 
     String testOrderFilePath
     File testOrderFile
     String pollutedTest
     String testPhase = null
     List<String> lastFailingTestList
- 
+
     public BisectGrailsTests(args) {
         parseArgs(args)
     }
- 
+
     def parseArgs(args) {
         def cli = new CliBuilder(usage: "bisectGrailsTests.groovy -f testFile.txt -t com.example.FailingTest")
- 
+
         cli.with {
             f longOpt: 'testOrderFilePath', args: 1, argName: 'filePath', "A file containing the test class names in the order you'd like to run them"
             t longOpt: 'pollutedTest', args: 1, argName: 'pollutedTest', "The test class name that passes when run by itself but fails when the other tests are run"
             p longOpt: 'testPhase', args: 1, argName: 'testPhase', "Only run with a particular test phase (ex: 'unit', 'integration', etc)"
         }
- 
+
         def options = cli.parse(args)
- 
+
         if(options.'testOrderFilePath') {
             testOrderFilePath = options.'testOrderFilePath'
             testOrderFile = new File(testOrderFilePath)
         }
- 
+
         if (options.'pollutedTest') pollutedTest = options.'pollutedTest'
- 
+
         if (options.'testPhase') {
             testPhase = options.'testPhase'
             println "Only running test phase $testPhase"
@@ -147,3 +146,4 @@ class BisectGrailsTests {
 }
  
 new BisectGrailsTests(args).bisectTests()
+
