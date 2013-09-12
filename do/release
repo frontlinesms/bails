@@ -1,5 +1,5 @@
 #!/bin/bash
 source do/util
 assert_script_version_ok
-bails/plugin/build_deploy $@
+bails/plugin/release $@
 
