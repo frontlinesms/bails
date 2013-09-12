@@ -44,7 +44,7 @@ if $orphanBranch; then
 	git commit -m"Branch for release of ${tagPrefix}${releaseVersion}"
 fi
 
-grails_change_plugin_version $previousVersion $releaseVersion
+grails_set_plugin_version $releaseVersion
 ${0%/*}/../plugin/build_deploy --m2-deploy # TODO should support binary here too
 git_commit_all_changes "[RELEASE: $releaseVersion]"
 git tag "${tagPrefix}${releaseVersion}"
@@ -54,7 +54,7 @@ if $orphanBranch; then
 	echo "# Checking out master so SNAPSHOT version rolling happens there instead of on orphan branch..."
 	git checkout master
 fi
-grails_change_plugin_version $previousVersion $nextVersion
+grails_set_plugin_version $nextVersion
 git_commit_all_changes "[POST-RELEASE: $releaseVersion -> $nextVersion]"
 git push
 git push --tags
