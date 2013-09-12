@@ -1,5 +1,5 @@
 class BailsGrailsPlugin {
-	def version = '0.3.1'
+	def version = '0.4-SNAPSHOT'
 	def grailsVersion = '2.0 > *'
 	def title = 'Bails Plugin'
 	def author = 'Alex Anderson'
