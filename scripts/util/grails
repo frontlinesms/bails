@@ -33,3 +33,9 @@ function grails_get_application_property {
 	grep "^$(echo $key | sed 's/\./\\./g')=" application.properties | cut -d= -f2
 }
 
+function grails_change_plugin_version {
+	local _prev="$1"
+	local _next="$2"
+	sed -i -E -e "s/def\s+version\s*=\s*['\"]$_prev['\"]/def version = '$_next'/g" *GrailsPlugin.groovy
+}
+
