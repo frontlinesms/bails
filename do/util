@@ -1,15 +1,24 @@
 #!/bin/bash
 source bails/head
 
-function assert_script_version_ok {
-	initScript=scripts/BailsInit.groovy
-	pluginVersion=$(grails_get_plugin_version)
-	pluginVersionInScript=$(groovy_get_var $initScript bailsVersion)
+bailsInitScript=scripts/BailsInit.groovy
+
+function bails_get_version {
+	grails_get_plugin_version
+}
+
+function bails_get_version_in_init_script {
+	groovy_get_var $bailsInitScript bailsVersion
+}
+
+function bails_assert_script_version_ok {
+	pluginVersion=$(bails_get_version)
+	pluginVersionInScript=$(bails_get_version_in_init_script)
 
 	if [[ $pluginVersionInScript != $pluginVersion ]]; then
-		log "Plugin version differs from that listed in $initScript.  Build will not work."
+		log "Plugin version differs from that listed in $bailsInitScript  Build will not work."
 		log "Grails plugin version: $pluginVersion"
-		log "In $initScript: $pluginVersionInScript"
+		log "In $bailsInitScript: $pluginVersionInScript"
 		exit 1
 	fi
 }

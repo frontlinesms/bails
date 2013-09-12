@@ -1,5 +1,9 @@
 #!/bin/bash
 source do/util
-assert_script_version_ok
+
+log "Current version is $(bails_get_version)."
+log "$bailsInitScript version: $(bails_get_version_in_init_script)."
+read -p "# If you are happy these version match, press [ENTER] to continue. "
+
 bails/plugin/release $@
 

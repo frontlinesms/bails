@@ -1,5 +1,5 @@
 target(name:'bailsInit') {
-	def bailsVersion = '0.2-SNAPSHOT'
+	def bailsVersion = '0.3.1'
 
 	symlink(link:"${basedir}/bails",
 			overwrite:true,
