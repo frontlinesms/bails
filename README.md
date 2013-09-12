@@ -13,6 +13,22 @@ Bails makes some assumptions about the tools and libraries you have available, a
 * running grails scripts is slow
 * writing codenarc rules is beyond me
 
+# Installation
+
+Add the following to your `grails-app/conf/BuildConfig`'s `plugins` closure:
+
+	build ':bails:0.3.1'
+
+and then run the following:
+
+	grails compile && grails bails-init
+
+This will set up the `bails` directory in your project.  You can then run bails scripts like so:
+
+	bails/plugin/release
+
+N.B. this will need some tweaking if your plugins temp directory is not `target/`.  Pull requests to fix this are welcome!
+
 # Stack
 
 Bails assumes you are using the following frameworks/tools/languages and will help you to integrate with them:
