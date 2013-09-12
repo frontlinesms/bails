@@ -36,6 +36,7 @@ function grails_get_application_property {
 function grails_change_plugin_version {
 	local _prev="$1"
 	local _next="$2"
+	log "Changing plugin version from $_prev -> $_next..."
 	sed -i -E -e "s/def\s+version\s*=\s*['\"]$_prev['\"]/def version = '$_next'/g" *GrailsPlugin.groovy
 }
 
