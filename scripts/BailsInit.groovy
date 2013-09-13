@@ -3,7 +3,7 @@ target(name:'bailsInit') {
 
 	symlink(link:"${basedir}/bails",
 			overwrite:true,
-			resource:"${basedir}/target/plugins/bails-${bailsVersion}/scripts",
+			resource:"target/plugins/bails-${bailsVersion}/scripts",
 			failonerror:true)
 	exec(executable:'chmod',
 			dir:"${basedir}/bails",
