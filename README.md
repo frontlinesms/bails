@@ -110,6 +110,11 @@ These scripts are for integration with the [Jenkins Violations Plugin][6].
 * add all the scripts
 * document git submodule setup
 
+## BUGS
+
+* csslint does not fail if csslint package is unavailable
+* nodejs "check for lib" doesn't actually work
+
 [1]: http://www.grails.org
 [2]: http://www.gnu.org/software/bash/manual/bashref.html
 [3]: http://git-scm.com/
