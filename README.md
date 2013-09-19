@@ -106,6 +106,7 @@ These scripts are for integration with the [Jenkins Violations Plugin][6].
 
 ## TODO
 
+* move execution permission change into Install script - it's a bit inconvenient in shared environments otherwise
 * add all the scripts
 * document git submodule setup
 
