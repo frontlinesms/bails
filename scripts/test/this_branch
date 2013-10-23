@@ -1,0 +1,3 @@
+#!/bin/bash
+grails test-app $(git diff master --name-only -- test/ | grep 'Spec\.groovy' | sed -E -e 's:test/(\w+)/.*:\1:' | sort -u | xargs printf '%s: ')  $(git diff master --name-only -- test/ | grep 'Spec\.groovy' | sed -E -e 's:.*/(\w+)Spec\.groovy:\1:')
+
