@@ -99,6 +99,10 @@ These scripts are for integration with the [Jenkins Violations Plugin][6].
 
 # Release Notes
 
+## 0.4
+
+* Updated `bails-init` script to automatically detect the bails version
+
 ## 0.1
 
 * added lots of scripts, including plugin build_deploy and release
