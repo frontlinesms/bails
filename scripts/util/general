@@ -22,3 +22,10 @@ function TODO {
 	exit 1
 }
 
+increment_version() {
+	local previousVersion="$@"
+	local newVersionHead=${previousVersion%.*}
+	local newVersionTail=${previousVersion##*.}
+	echo "${newVersionHead}.$(($newVersionTail + 1))"
+}
+

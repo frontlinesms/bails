@@ -9,12 +9,20 @@ function git_assert_repo_clean {
 }
 
 function git_commit_all_changes {
+	local confirmRequired=true
+	while [[ "$1" == --* ]]; do
+		case "$1" in
+			--no-confirm)
+				local confirmRequired=false ;;
+		esac
+		shift
+	done
 	local _commitMessage="$@"
 	git status
-	read -p "# Committing all changes with message: $_commitMessage [enter] "
-	# Add new files to git
+	if $confirmRequired; then
+		read -p "# Committing all changes with message: $_commitMessage [enter] "
+	fi
 	git add .
-	# --all will also remove deleted files
 	git commit --all -m"$_commitMessage"
 }
 

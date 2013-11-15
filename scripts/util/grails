@@ -33,6 +33,16 @@ function grails_get_application_property {
 	grep "^$(echo $key | sed 's/\./\\./g')=" application.properties | cut -d= -f2
 }
 
+function grails_set_application_property {
+	local key="$1"
+	local value="$2"
+	if [[ -z "$value" ]]; then
+		log "key value not provided"
+		exit 1
+	fi
+	sed -i -E -e "s/^$key=.*$/$key=$value/g" application.properties
+}
+
 function grails_set_plugin_version {
 	local _next="$1"
 	log "Setting plugin version to $_next..."
