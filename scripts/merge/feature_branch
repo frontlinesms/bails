@@ -1,0 +1,29 @@
+#!/bin/bash
+# No 'clever' error handling here - if the script fails, just run it again.
+source do/head
+currentBranch=$(git_get_current_branch)
+if [[ "$currentBranch" == master ]]; then
+        log "Cannot merge master to itself."
+        exit 1
+fi
+
+grails_test_phases_separately() {
+        grails test-app unit:
+        grails test-app integration:
+        grails test-app functional:
+}
+
+git checkout master
+git pull origin master
+
+git checkout $currentBranch
+git pull origin $currentBranch
+
+grails_test_phases_separately
+git merge master
+grails_test_phases_separately
+
+git checkout master
+git merge $currentBranch
+git push origin master
+
