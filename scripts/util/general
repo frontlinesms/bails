@@ -6,7 +6,7 @@
 # These functions should have no direct ties to a particular project or context.
 temp=tmp
 
-function log {
+log() {
 	local logStart="#"
 	local sourceLen=${#BASH_SOURCE[@]}
 	for ((i=$sourceLen-1; i>0; --i)); do
@@ -17,7 +17,7 @@ function log {
 	echo "$logStart $@"
 }
 
-function TODO {
+TODO() {
 	echo "TODO: $@"
 	exit 1
 }
@@ -27,5 +27,12 @@ increment_version() {
 	local newVersionHead=${previousVersion%.*}
 	local newVersionTail=${previousVersion##*.}
 	echo "${newVersionHead}.$(($newVersionTail + 1))"
+}
+
+confirm() {
+	if [[ "$@" ]]; then
+		echo "# $@"
+	fi
+	read -p "# Press [enter] to continue."
 }
 
