@@ -1,6 +1,6 @@
 #!/bin/bash
 # No 'clever' error handling here - if the script fails, just run it again.
-source do/head
+source bails/head
 currentBranch=$(git_get_current_branch)
 if [[ "$currentBranch" == master ]]; then
         log "Cannot merge master to itself."
