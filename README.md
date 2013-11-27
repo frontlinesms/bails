@@ -99,6 +99,10 @@ These scripts are for integration with the [Jenkins Violations Plugin][6].
 
 # Release Notes
 
+## 0.7
+
+* added jenkin's safe-merge of feature branch script
+
 ## 0.4.1
 
 * fixed `test/this_branch` for machines which *require* `Spec` to be appended to each spec name when running `grails test-app`
