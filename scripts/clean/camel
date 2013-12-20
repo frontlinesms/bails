@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+
+function clean_naughty_camel {
+	CAMEL_DIR="$1"
+	echo "# Removing $CAMEL_DIR..."
+	rm -rf $CAMEL_DIR
+	echo "# Camel dir removed."
+}
+
+clean_naughty_camel target/plugins/routing-*/
+
+APP_NAME=`grep '^app.name=' application.properties | cut -d= -f2`
+GRAILS_VERSION=`grep '^app.grails.version=' application.properties | cut -d= -f2`
+clean_naughty_camel ~/.grails/$GRAILS_VERSION/projects/$APP_NAME/plugins/routing-*/
+
