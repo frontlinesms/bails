@@ -3,19 +3,6 @@ _grails_target=target
 testReports=$_grails_target/test-reports
 analysisReports=$_grails_target/analysis-reports
 
-function log {
-	local logStart="#"
-	local sourceLen=${#BASH_SOURCE[@]}
-	for ((i=$sourceLen-1; i>0; --i)); do
-		if [[ $logStart != 'util' ]]; then
-			logStart="$logStart [$(basename ${BASH_SOURCE[$i]})]"
-		fi
-	done
-	echo "[do/util is deprected] $logStart $@"
-}
-
-
-
 function grails_assert_no_snapshot_dependencies {
 	log "Checking for SNAPSHOT dependencies..."
 	local res=$(grep -Erq SNAPSHOT grails-app/conf/BuildConfig.groovy)
